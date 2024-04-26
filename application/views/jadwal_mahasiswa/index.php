@@ -12,6 +12,13 @@
 <body>
     <div class="container">
         <h2>Data Jadwal Mahasiswa</h2>
+        <h3>Nama: <?php echo $this->session->userdata('nama'); ?></h3>
+        <div class="row">
+            <div class="col-md-12 text-right mb-3">
+                <a href="<?php echo base_url('index.php/jadwalmahasiswa/tambah'); ?>" class="btn btn-primary">Tambah</a>
+                <a href="<?php echo base_url('index.php/login/logout'); ?>" class="btn btn-secondary">Logout</a>
+            </div>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -31,7 +38,6 @@
                         <td><?php echo $jadwal['nama_ruang']; ?></td>
                         <td>
                             <!-- Tambahkan tombol edit dan hapus dengan link ke fungsi edit dan hapus di controller -->
-                            <a href="<?php echo base_url('jadwalmahasiswa/edit/' . $jadwal['id_jadwal_mahasiswa']); ?>" class="btn btn-primary">Edit</a>
                             <a href="<?php echo base_url('jadwalmahasiswa/hapus/' . $jadwal['id_jadwal_mahasiswa']); ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Hapus</a>
                         </td>
                     </tr>

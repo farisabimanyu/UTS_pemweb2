@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Users_model extends CI_Model
+class User_model extends CI_Model
 {
 
     // Constructor
@@ -41,9 +41,13 @@ class Users_model extends CI_Model
         return $this->db->delete('users', array('id_user' => $id));
     }
 
-    // Fungsi untuk memeriksa keberadaan user berdasarkan username
-    public function cek_username($username)
+    // Fungsi untuk mendapatkan data user berdasarkan username
+    public function get_user_by_username($username)
     {
-        return $this->db->get_where('users', array('username' => $username))->row_array();
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->join('mahasiswa', 'mahasiswa.id_user=users.id_user', 'left');
+        $this->db->where('username', $username);
+        return $this->db->get()->row_array();
     }
 }

@@ -10,21 +10,46 @@ class JadwalMahasiswa extends CI_Controller
         parent::__construct();
         // Load model jadwal mahasiswa
         $this->load->model('jadwalmahasiswa_model');
+        $this->load->model('jadwal_model');
     }
 
     // Fungsi untuk menampilkan semua data jadwal mahasiswa
     public function index()
     {
-        $data['jadwal_mahasiswa'] = $this->jadwalmahasiswa_model->semua_jadwal_mahasiswa();
+        $data['jadwal_mahasiswa'] = $this->jadwalmahasiswa_model->get_jadwal_mahasiswa_by_nim($this->session->userdata('nim'));
         // Load view untuk menampilkan data jadwal mahasiswa
         $this->load->view('jadwal_mahasiswa/index', $data);
     }
 
-    // Fungsi untuk menambahkan data jadwal mahasiswa baru
+    // Fungsi untuk menampilkan form tambah jadwal mahasiswa
     public function tambah()
     {
-        // Implementasi tambah data jadwal mahasiswa
+        // Ambil data mata kuliah dari model
+        $data['jadwal'] = $this->jadwal_model->semua_jadwal();
+
+        // Load view form tambah jadwal mahasiswa
+        $this->load->view('jadwal_mahasiswa/tambah', $data);
     }
+
+    // Fungsi untuk menyimpan data jadwal mahasiswa baru
+    public function simpan()
+    {
+        // Ambil data input dari form tambah
+        $data = array(
+            'id_matakuliah' => $this->input->post('id_matakuliah'),
+            // Jam mulai dan jam selesai dapat diatur di sisi server
+        );
+
+        // Panggil model untuk menyimpan data jadwal mahasiswa baru
+        // $this->Jadwalmahasiswa_model->tambah_jadwal_mahasiswa($data);
+
+        // Tambahkan kode untuk menyimpan data jadwal mahasiswa baru ke dalam database
+        // ...
+
+        // Redirect kembali ke halaman index
+        redirect('jadwalmahasiswa');
+    }
+
 
     // Fungsi untuk mengedit data jadwal mahasiswa
     public function edit($id)

@@ -27,10 +27,16 @@ class JadwalMahasiswa_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    // Fungsi untuk mengambil data jadwal mahasiswa berdasarkan ID
-    public function get_jadwal_mahasiswa_by_id($id)
+    // Fungsi untuk mengambil data jadwal mahasiswa berdasarkan NIM
+    public function get_jadwal_mahasiswa_by_nim($nim)
     {
-        return $this->db->get_where('jadwal_mahasiswa', array('id_jadwal_mahasiswa' => $id))->row_array();
+        $this->db->select('*');
+        $this->db->from('jadwal_mahasiswa');
+        $this->db->join('jadwal', 'jadwal.id_jadwal=jadwal_mahasiswa.id_jadwal', 'left');
+        $this->db->join('mahasiswa', 'mahasiswa.nim=jadwal_mahasiswa.nim', 'left');
+        $this->db->join('matakuliah', 'matakuliah.id_matakuliah=jadwal.id_matakuliah', 'left');
+        $this->db->where('mahasiswa.nim', $nim);
+        return $this->db->get()->result_array();
     }
 
     // Fungsi untuk mengupdate data jadwal mahasiswa

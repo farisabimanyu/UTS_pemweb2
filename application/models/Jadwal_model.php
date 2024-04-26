@@ -19,7 +19,10 @@ class Jadwal_model extends CI_Model
     // Fungsi untuk mengambil semua data jadwal
     public function semua_jadwal()
     {
-        return $this->db->get('jadwal')->result_array();
+        $this->db->select('*');
+        $this->db->from('jadwal');
+        $this->db->join('matakuliah', 'matakuliah.id_matakuliah=jadwal.id_matakuliah', 'left');
+        return $this->db->get()->result_array();
     }
 
     // Fungsi untuk mengambil data jadwal berdasarkan ID
