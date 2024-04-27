@@ -1,6 +1,6 @@
 <h1>Hasil<h1><br>
 <h2>Login Page</h><br>
-<img src="Screenshot hasil/login_page(1)page.png">
+<img src="Screenshot hasil/login_page(1).png">
 <h2>Jadwal mahasiswa sebelum</h><br>
 <img src="Screenshot hasil/jadwalmhs_before_tambah.png">
 <h2>Halaman Pilih Matkul</h><br>
