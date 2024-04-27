@@ -36,12 +36,12 @@ class JadwalMahasiswa extends CI_Controller
     {
         // Ambil data input dari form tambah
         $data = array(
-            'id_matakuliah' => $this->input->post('id_matakuliah'),
-            // Jam mulai dan jam selesai dapat diatur di sisi server
+            'id_jadwal' => $this->input->post('id_jadwal'),
+            'nim' => $this->session->userdata('nim'),
         );
 
         // Panggil model untuk menyimpan data jadwal mahasiswa baru
-        // $this->Jadwalmahasiswa_model->tambah_jadwal_mahasiswa($data);
+        $this->jadwalmahasiswa_model->tambah_jadwal_mahasiswa($data);
 
         // Tambahkan kode untuk menyimpan data jadwal mahasiswa baru ke dalam database
         // ...
@@ -58,8 +58,12 @@ class JadwalMahasiswa extends CI_Controller
     }
 
     // Fungsi untuk menghapus data jadwal mahasiswa
-    public function hapus($id)
+    public function hapus($id_jadwal_mahasiswa)
     {
-        // Implementasi hapus data jadwal mahasiswa
+        // Panggil model untuk menghapus data jadwal mahasiswa berdasarkan id
+        $this->jadwalmahasiswa_model->hapus_jadwal_mahasiswa($id_jadwal_mahasiswa);
+
+        // Redirect kembali ke halaman index
+        redirect('jadwalmahasiswa');
     }
 }

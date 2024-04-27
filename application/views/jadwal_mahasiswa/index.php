@@ -38,7 +38,8 @@
                         <td><?php echo $jadwal['nama_ruang']; ?></td>
                         <td>
                             <!-- Tambahkan tombol edit dan hapus dengan link ke fungsi edit dan hapus di controller -->
-                            <a href="<?php echo base_url('jadwalmahasiswa/hapus/' . $jadwal['id_jadwal_mahasiswa']); ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Hapus</a>
+                            <a href="<?php echo base_url('index.php/jadwalmahasiswa/hapus/' . $jadwal['id_jadwal_mahasiswa']);
+                                        ?>" class="btn btn-danger" onclick="return confirm('Apa anda yakin ingin menghapus <?php echo $jadwal['nama_matakuliah'] ?>?');">Hapus</a>
                         </td>
                     </tr>
                 <?php } ?>

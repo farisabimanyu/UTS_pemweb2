@@ -12,13 +12,13 @@
 <body>
     <div class="container">
         <h2>Tambah Jadwal Mahasiswa</h2>
-        <form action="<?php echo base_url('jadwalmahasiswa/simpan'); ?>" method="post">
+        <form action="<?php echo base_url('index.php/jadwalmahasiswa/simpan'); ?>" method="post">
             <div class="form-group">
                 <label for="id_matakuliah">Mata Kuliah</label>
-                <select class="form-control" id="id_matakuliah" name="id_matakuliah" required>
+                <select class="form-control" id="id_jadwal" name="id_jadwal" required>
                     <option value="">Pilih Mata Kuliah</option>
                     <?php foreach ($jadwal as $data) { ?>
-                        <option value="<?php echo $data['id_matakuliah']; ?>"><?php echo $data['nama_matakuliah']; ?></option>
+                        <option value="<?php echo $data['id_jadwal']; ?>"><?php echo $data['nama_matakuliah']; ?></option>
                     <?php } ?>
                 </select>
             </div>
