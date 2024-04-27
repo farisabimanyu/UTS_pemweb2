@@ -6,8 +6,8 @@
 <h2>Halaman Pilih Matkul</h><br>
 <img src="Screenshot hasil/pilih_matkul.png">
 <h2>Jadwal Mahasiswa Setelah ditambahkan Matkul lain</h><br>
-<img src="Screenshot hasil/adwalmhs_after_tambah.png">
+<img src="Screenshot hasil/jadwalmhs_after_tambah.png">
 <h2>Alert hapus matkul</h><br>
 <img src="Screenshot hasil/alert_hapus_matkul.png">
-<h2>Ubah Produk</h><br>
+<h2>Jadwal Mahasiswa setelah delete 1 matkul</h><br>
 <img src="Screenshot hasil/jadwalmhs_after_del1matkul.png">
